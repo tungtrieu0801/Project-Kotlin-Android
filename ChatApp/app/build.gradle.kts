@@ -1,12 +1,15 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
-
+apply(plugin = "com.google.gms.google-services")
 android {
     namespace = "com.example.chatapp"
     compileSdk = 34
-
+    buildFeatures {
+        viewBinding = true
+    }
     defaultConfig {
         applicationId = "com.example.chatapp"
         minSdk = 24
@@ -44,4 +47,21 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+
+    implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-database")
+    implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.firebase:firebase-messaging")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation ("com.github.pgreze:android-reactions:1.6")
+    implementation("com.github.3llomi:CircularStatusView:V1.0.3")
+    implementation("com.github.OMARIHAMZA:StoryView:1.0.2-alpha")
+    implementation("com.github.sharish:ShimmerRecyclerView:v1.3")
+    implementation("com.github.mukeshsolanki.android-otpview-pinview:otpview:3.1.0")
+
 }
